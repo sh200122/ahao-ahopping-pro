@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getPicCode } from '@/api/login'
+import { getMsgCode, getPicCode } from '@/api/login'
 // import { Toast } from 'vant'
 
 export default {
@@ -77,7 +77,7 @@ export default {
     },
 
     // 获取短信验证码
-    getCode () {
+    async getCode () {
       if (!this.validFn()) {
         // 如果没通过校验，没必要往下走了
         return
@@ -85,6 +85,10 @@ export default {
 
       // 当前目前没有定时器开着，且 totalSecond 和 second 一致 (秒数归位) 才可以倒计时
       if (!this.timer && this.second === this.totalSecond) {
+        // 发送请求
+        await getMsgCode(this.picCode, this.picKey, this.mobile)
+        this.$toast('短信发送成功，注意查收')
+
         // 开启倒计时
         this.timer = setInterval(() => {
           console.log('正在倒计时...')
