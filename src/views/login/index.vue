@@ -10,7 +10,7 @@
 
       <div class="form">
         <div class="form-item">
-          <input class="inp" maxlength="11" placeholder="请输入手机号码" type="text">
+          <input v-model="mobile" class="inp" maxlength="11" placeholder="请输入手机号码" type="text">
         </div>
         <div class="form-item">
           <input v-model="picCode" class="inp" maxlength="5" placeholder="请输入图形验证码" type="text">
@@ -18,7 +18,9 @@
         </div>
         <div class="form-item">
           <input class="inp" placeholder="请输入短信验证码" type="text">
-          <button>获取验证码</button>
+          <button @click="getCode">
+            {{ second === totalSecond ? '获取验证码' : second + '秒后重新发送'}}
+          </button>
         </div>
       </div>
 
@@ -35,9 +37,13 @@ export default {
   name: 'LoginPage',
   data () {
     return {
-      picCode: '', // 用户输入的图形验证码
       picKey: '', // 将来请求传递的图形验证码唯一标识
-      picUrl: '' // 存储请求渲染的图片地址
+      picUrl: '', // 存储请求渲染的图片地址
+      totalSecond: 60, // 总秒数
+      second: 60, // 当前秒数，开定时器对 second--
+      timer: null, // 定时器 id
+      mobile: '', // 手机号
+      picCode: '' // 用户输入的图形验证码
     }
   },
   async created () {
@@ -53,7 +59,49 @@ export default {
       // Toast('获取图形验证码成功')
       // this.$toast('获取成功')
       // this.$toast.success('成功文案')
+    },
+
+    // 校验 手机号 和 图形验证码 是否合法
+    // 通过校验，返回true
+    // 不通过校验，返回false
+    validFn () {
+      if (!/^1[3-9]\d{9}$/.test(this.mobile)) {
+        this.$toast('请输入正确的手机号')
+        return false
+      }
+      if (!/^\w{4}$/.test(this.picCode)) {
+        this.$toast('请输入正确的图形验证码')
+        return false
+      }
+      return true
+    },
+
+    // 获取短信验证码
+    getCode () {
+      if (!this.validFn()) {
+        // 如果没通过校验，没必要往下走了
+        return
+      }
+
+      // 当前目前没有定时器开着，且 totalSecond 和 second 一致 (秒数归位) 才可以倒计时
+      if (!this.timer && this.second === this.totalSecond) {
+        // 开启倒计时
+        this.timer = setInterval(() => {
+          console.log('正在倒计时...')
+          this.second--
+
+          if (this.second <= 0) {
+            clearInterval(this.timer)
+            this.timer = null // 重置定时器 id
+            this.second = this.totalSecond // 归位
+          }
+        }, 1000)
+      }
     }
+  },
+  // 离开页面清除定时器
+  destroyed () {
+    clearInterval(this.timer)
   }
 }
 </script>
