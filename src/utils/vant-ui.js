@@ -1,7 +1,8 @@
 // 按需导入
 import Vue from 'vue'
-import { Button, Switch, Rate, Tabbar, TabbarItem, NavBar } from 'vant'
+import { Toast, Button, Switch, Rate, Tabbar, TabbarItem, NavBar } from 'vant'
 
+Vue.use(Toast)
 Vue.use(NavBar)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
