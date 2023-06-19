@@ -117,6 +117,7 @@ export default {
       }
 
       const res = await codeLogin(this.mobile, this.msgCode)
+      this.$store.commit('user/setUserInfo', res.data)
       console.log(res)
       this.$toast('登录成功')
       this.$router.push('/')
