@@ -97,7 +97,8 @@
         </div>
         <div class="num-box">
           <span>数量</span>
-          数字框占位
+          <!-- v-model 本质上 :value 和 @input 的简写 -->
+          <CountBox v-model="addCount"></CountBox>
         </div>
 
         <!-- 有库存才显示提交按钮 -->
@@ -115,8 +116,12 @@
 <script>
 import { getProComments, getProDetail } from '@/api/product'
 import defaultImg from '@/assets/default-avatar.png'
+import CountBox from '@/components/CountBox.vue'
 export default {
   name: 'ProDetail',
+  components: {
+    CountBox
+  },
   data () {
     return {
       images: [],
@@ -126,7 +131,8 @@ export default {
       commentList: [], // 评价列表
       defaultImg,
       showPannel: false, // 控制弹层的显示隐藏
-      mode: 'cart' // 标记弹层状态
+      mode: 'cart', // 标记弹层状态
+      addCount: 1 // 数字框绑定的数据
     }
   },
   computed: {
