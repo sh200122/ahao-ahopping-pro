@@ -21,7 +21,8 @@
           <span class="tit text-ellipsis-2">{{ item.goods.goods_name }}</span>
           <span class="bottom">
             <div class="price">¥ <span>{{ item.goods.goods_price_min }}</span></div>
-            <CountBox :value="item.goods_num"></CountBox>
+            <!-- 既希望保留原本的形参，又需要通过调用函数传参 => 箭头函数包装一层 -->
+            <CountBox @input="(value) => changeCount(value, item.goods_id, item.goods_sku_id)" :value="item.goods_num"></CountBox>
           </span>
         </div>
       </div>
@@ -69,6 +70,15 @@ export default {
     },
     toggleAllCheck () {
       this.$store.commit('cart/toggleAllCheck', !this.isAllChecked)
+    },
+    changeCount (goodsNum, goodsId, goodsSkuId) {
+      // console.log(goodsNum, goodsId, goodsSkuId)
+      // 调用 vuex 的 action，进行数量的修改
+      this.$store.dispatch('cart/changeCountAction', {
+        goodsNum,
+        goodsId,
+        goodsSkuId
+      })
     }
   }
 }
