@@ -10,3 +10,8 @@ export const addCart = (goodsId, goodsNum, goodsSkuId) => {
     goodsSkuId
   })
 }
+
+// 获取购物车列表
+export const getCartList = () => {
+  return request.get('/cart/list')
+}

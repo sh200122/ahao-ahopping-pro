@@ -51,6 +51,12 @@ export default {
   name: 'CartPage',
   components: {
     CountBox
+  },
+  created () {
+    // 必须是登录过的用户，才能用户购物车列表
+    if (this.$store.getters.token) {
+      this.$store.dispatch('cart/getCartAction')
+    }
   }
 }
 </script>
