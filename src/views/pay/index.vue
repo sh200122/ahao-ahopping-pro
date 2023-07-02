@@ -97,8 +97,10 @@
 <script>
 import { getAddressList } from '@/api/address'
 import { checkOrder } from '@/api/order'
+import loginConfirm from '@/mixins/loginConfirm'
 export default {
   name: 'PayIndex',
+  mixins: [loginConfirm],
   data () {
     return {
       addressList: [],
@@ -120,6 +122,15 @@ export default {
     },
     cartIds () {
       return this.$route.query.cartIds
+    },
+    goodsId () {
+      return this.$route.query.goodsId
+    },
+    goodsSkuId () {
+      return this.$route.query.goodsSkuId
+    },
+    goodsNum () {
+      return this.$route.query.goodsNum
     }
   },
   created () {
@@ -132,11 +143,24 @@ export default {
       this.addressList = list
     },
     async getOrderList () {
-      const { data: { order, personal } } = await checkOrder(this.mode, {
-        cartIds: this.cartIds
-      })
-      this.order = order
-      this.personal = personal
+      // 购物车结算
+      if (this.mode === 'cart') {
+        const { data: { order, personal } } = await checkOrder(this.mode, {
+          cartIds: this.cartIds
+        })
+        this.order = order
+        this.personal = personal
+      }
+      // 立刻购买结算
+      if (this.mode === 'buyNow') {
+        const { data: { order, personal } } = await checkOrder(this.mode, {
+          goodsId: this.goodsId,
+          goodsSkuId: this.goodsSkuId,
+          goodsNum: this.goodsNum
+        })
+        this.order = order
+        this.personal = personal
+      }
     }
   }
 }
