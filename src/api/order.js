@@ -1,4 +1,4 @@
-import request from '@/api/request'
+import request from '@/utils/request'
 
 // 订单结算确认
 // mode: cart    => obj { cartIds }
