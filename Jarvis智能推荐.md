@@ -2,8 +2,8 @@
 
 ![72135693606](src/assets/贾维斯/1.png)
 
-![72135701943](src\assets\贾维斯\2.png)
+![72135701943](src/assets/贾维斯/2.png)
 
-![72135708555](src\assets\贾维斯\3.png)
+![72135708555](src/assets/贾维斯/3.png)
 
-![72135734344](src\assets\贾维斯\4.png)
+![72135734344](src/assets/贾维斯/4.png)
