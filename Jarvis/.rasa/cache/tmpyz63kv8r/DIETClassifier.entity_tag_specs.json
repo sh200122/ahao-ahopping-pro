@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-phone_model",
+      "2": "I-phone_model",
+      "3": "L-phone_model",
+      "4": "U-phone_model",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-phone_model": 1,
+      "I-phone_model": 2,
+      "L-phone_model": 3,
+      "U-phone_model": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]

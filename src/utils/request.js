@@ -6,7 +6,8 @@ import { Toast } from 'vant'
 // 好处：不会污染原始的 axios 实例
 const instance = axios.create({
   baseURL: 'http://smart-shop.itheima.net/index.php?s=/api',
-  timeout: 5000
+  timeout: 5000,
+  headers: { platform: 'H5' }
 })
 
 // 自定义配置 - 请求/响应 拦截器

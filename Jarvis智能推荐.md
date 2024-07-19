@@ -1,0 +1,9 @@
+### 由于贾维斯还没有部署上线，只能先在这里演示！
+
+![72135693606](D:\桌面\ahao-shopping-pro\src\assets\贾维斯\1.png)
+
+![72135701943](D:\桌面\ahao-shopping-pro\src\assets\贾维斯\2.png)
+
+![72135708555](D:\桌面\ahao-shopping-pro\src\assets\贾维斯\3.png)
+
+![72135734344](D:\桌面\ahao-shopping-pro\src\assets\贾维斯\4.png)

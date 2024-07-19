@@ -1,0 +1,41 @@
+version: "3.1"
+intents:
+  - greet
+  - ask_product
+  - ask_price
+  - recommend_phone
+  - phone_info
+
+entities:
+  - phone_model
+
+slots:
+  phone_model:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone_model
+
+responses:
+  utter_greet:
+    - text: 你好！欢迎来到我们的商店。请问有什么可以帮您的吗？
+
+  utter_ask_product:
+    - text: 我们有多种手机，包括最新款的 iPhone 和三星 Galaxy。请问您具体需要什么？
+
+  utter_ask_price:
+    - text: 您可以告诉我您感兴趣的手机型号吗？我可以为您查询价格。
+
+  utter_recommend_phone:
+    - text: 根据您的需求，我推荐以下手机：{recommendations}
+
+  utter_phone_info:
+    - text: "{phone_info}"
+
+actions:
+  - utter_greet
+  - utter_ask_product
+  - utter_ask_price
+  - action_recommend_phone
+  - action_phone_info

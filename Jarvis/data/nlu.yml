@@ -1,0 +1,35 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - 你好
+    - 早上好
+    - 下午好
+    - 晚上好
+
+- intent: ask_product
+  examples: |
+    - 请问你们有手机吗？
+    - 有哪些手机推荐？
+    - 推荐一些手机吧
+    - 我想买手机
+
+- intent: ask_price
+  examples: |
+    - 这款手机多少钱？
+    - 手机的价格是多少？
+    - 有没有打折的手机？
+    - 这手机贵吗？
+
+- intent: recommend_phone
+  examples: |
+    - 你能推荐一些手机吗？
+    - 有什么推荐的手机吗？
+    - 你能帮我推荐手机吗？
+
+- intent: phone_info
+  examples: |
+    - 请介绍一下 [iPhone 14](phone_model)
+    - 你能告诉我一些关于 [三星 Galaxy](phone_model) 的情况吗？
+    - [iPhone 14](phone_model) 有什么特点？
+    - [三星 Galaxy](phone_model) 怎么样？

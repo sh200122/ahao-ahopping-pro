@@ -1,0 +1,26 @@
+version: "3.1"
+rules:
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: User asks for a product
+  steps:
+  - intent: ask_product
+  - action: utter_ask_product
+
+- rule: User asks for price
+  steps:
+  - intent: ask_price
+  - action: utter_ask_price
+
+- rule: User asks for phone recommendations
+  steps:
+  - intent: recommend_phone
+  - action: action_recommend_phone
+
+- rule: User asks for phone info
+  steps:
+  - intent: phone_info
+  - action: action_phone_info

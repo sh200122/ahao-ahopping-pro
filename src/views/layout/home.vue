@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     <!-- 导航条 -->
-    <van-nav-bar title="智慧商城" fixed />
+    <van-nav-bar title="阿浩商城" fixed>
+      <template #right>
+        <span @click="$router.push('/chat')" style="display: flex; align-items: center; color: white;">
+          <i class="iconfont icon-kefu-jiqiren" style="margin-left: 8px; font-size: 20px;"></i>
+        </span>
+      </template>
+    </van-nav-bar>
 
     <!-- 搜索框 -->
     <van-search

@@ -1,0 +1,29 @@
+version: "3.1"
+stories:
+- story: Greet and ask for product
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_product
+  - action: utter_ask_product
+
+- story: Greet and ask for price
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_price
+  - action: utter_ask_price
+
+- story: Greet and ask for phone recommendations
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: recommend_phone
+  - action: action_recommend_phone
+
+- story: Greet and ask for phone info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: phone_info
+  - action: action_phone_info

@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import '@/utils/vant-ui'
 import '@/styles/common.less'
+import './assets/iconfont/iconfont.css'
 
 // import { Toast } from 'vant'
 // Toast('嘿嘿，你好哇')
