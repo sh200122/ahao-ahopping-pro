@@ -1,5 +1,7 @@
 # ahao-shopping-pro
 
+### 由于贾维斯还没有部署上线，详情请看Jarvis智能推荐.md
+
 ## Project setup
 ```
 npm install
@@ -19,7 +21,6 @@ npm run build
 ```
 npm run lint
 ```
-### 由于贾维斯还没有部署上线，详情请看Jarvis智能推荐.md
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
