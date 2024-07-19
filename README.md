@@ -1,6 +1,7 @@
 # ahao-shopping-pro
 
-### 由于贾维斯还没有部署上线，详情请看Jarvis智能推荐.md
+### 由于贾维斯还没有部署上线，只能先在这里演示！
+![1](src/assets/贾维斯/1.png)
 
 ## Project setup
 ```
