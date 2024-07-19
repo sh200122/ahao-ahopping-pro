@@ -1,4 +1,4 @@
-# hm-shopping
+# ahao-shopping-pro
 
 ## Project setup
 ```
